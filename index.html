@@ -8,6 +8,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <!-- Materialize CDN  -->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <style>
     /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */
  body {
@@ -81,22 +88,146 @@
 <div class="row">
   <div class="col-md-12">
     <!-- Search Music  -->
+
     <div class="card mb-4 shadow-lg" style="border-color: #34495E">
       <div class="card-header text-white" style="background-color: #34495E">Music Search</div>
         <div class="card-body">
+
+      
+
+
           <!-- Entry Form -->
           <form>
-            <div class="form-group">
-              <label for="song-title-input">Title</label>
-              <input class="form-control" id="song-title-input" placeholder="Stairway" type="text">
+
+              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+              <script>
+              $( function() {
+                var availableSongs = [
+                  "ActionScript",
+                  "AppleScript",
+                  "Asp",
+                  "BASIC",
+                  "C",
+                  "C++",
+                  "Clojure",
+                  "COBOL",
+                  "ColdFusion",
+                  "Erlang",
+                  "Fortran",
+                  "Groovy",
+                  "Haskell",
+                  "Java",
+                  "JavaScript",
+                  "Lisp",
+                  "Perl",
+                  "PHP",
+                  "Python",
+                  "Ruby",
+                  "Scala",
+                  "Scheme"
+                ];
+                $( "#songs" ).autocomplete({
+                  source: availableSongs
+                });
+              } );
+              </script>
+            </head>
+            <body>
+             
+            <div class="ui-widget">
+              <label for="songs">Song Titles: </label>
+              <input id="songs">
             </div>
-            <div class="form-group">
-              <label for="artist-input">Artist</label>
-              <input class="form-control" id="artist-input" placeholder="Zeppelin" type="text">
-            </div>
-            <div class="form-group">
-              <label for="album-input">Album</label>
-              <input class="form-control" id="album-input" placeholder="Led Zeppelin IV" type="text">
+             
+             <!-- ADDING -->
+
+
+
+             <script>
+                $( function() {
+                  var availableArtists = [
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell",
+                    "Java",
+                    "JavaScript",
+                    "Lisp",
+                    "Perl",
+                    "PHP",
+                    "Python",
+                    "Ruby",
+                    "Scala",
+                    "Scheme"
+                  ];
+                  $( "#artists" ).autocomplete({
+                    source: availableArtists
+                  });
+                } );
+                </script>
+              </head>
+              <body>
+               
+              <div class="ui-widget">
+                <label for="artists">Artists </label>
+                <input id="artists">
+              </div>
+               
+              <script>
+                  $( function() {
+                    var availableAlbums = [
+                      "ActionScript",
+                      "AppleScript",
+                      "Asp",
+                      "BASIC",
+                      "C",
+                      "C++",
+                      "Clojure",
+                      "COBOL",
+                      "ColdFusion",
+                      "Erlang",
+                      "Fortran",
+                      "Groovy",
+                      "Haskell",
+                      "Java",
+                      "JavaScript",
+                      "Lisp",
+                      "Perl",
+                      "PHP",
+                      "Python",
+                      "Ruby",
+                      "Scala",
+                      "Scheme"
+                    ];
+                    $( "#albums" ).autocomplete({
+                      source: availableAlbums
+                    });
+                  } );
+                  </script>
+                </head>
+                <body>
+                 
+                <div class="ui-widget">
+                  <label for="albums">Albums </label>
+                  <input id="albums">
+                </div>
+                 
+                 
+               
+            </body>
+            </html>
+
+           
+
             </div>
             <button class="btn button float-left" id="search-music-btn">Submit</button>
           </form>
@@ -144,9 +275,8 @@
   <p></p>
 </div>
 
-
+<script src="./assets/javascript/javascript.js"></script>  
 
 </body>
 </html>
 
-dlkjfdkjlfj
