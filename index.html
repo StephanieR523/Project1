@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="typeahead.js"></script>
   <style>
     /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */
  body {
@@ -45,6 +46,64 @@
     /*transform: translateY(-7px);
     */
 }
+
+
+
+
+.bs-example {
+	font-family: sans-serif;
+	position: relative;
+	margin: 100px;
+}
+.typeahead, .tt-query, .tt-hint {
+	border: 2px solid #CCCCCC;
+	border-radius: 8px;
+	font-size: 22px; /* Set input font size */
+	height: 30px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 396px;
+}
+.typeahead {
+	background-color: #FFFFFF;
+}
+.typeahead:focus {
+	border: 2px solid #0097CF;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	margin-top: 12px;
+	padding: 8px 0;
+	width: 422px;
+}
+.tt-suggestion {
+	font-size: 22px;  /* Set suggestion dropdown font size */
+	padding: 3px 20px;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #0097CF;
+	color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -87,17 +146,10 @@
           <!-- Entry Form -->
           <form>
             <div class="form-group">
-              <label for="song-title-input">Title</label>
-              <input class="form-control" id="song-title-input" placeholder="Stairway" type="text">
+              <label for="searchTerm-input">Title</label>
+              <input class="form-control typeahead" id="searchTerm-input" placeholder="Stairway" type="text">
             </div>
-            <div class="form-group">
-              <label for="artist-input">Artist</label>
-              <input class="form-control" id="artist-input" placeholder="Zeppelin" type="text">
-            </div>
-            <div class="form-group">
-              <label for="album-input">Album</label>
-              <input class="form-control" id="album-input" placeholder="Led Zeppelin IV" type="text">
-            </div>
+            
             <button class="btn button float-left" id="search-music-btn">Submit</button>
           </form>
         </div>
@@ -144,6 +196,31 @@
   <p></p>
 </div>
 
+
+<script>
+$(document).ready(function(){
+    // Defining the local dataset
+    var songList = ["Margaritaville","Boys of Summer","Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanged Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
+    
+    // Constructing the suggestion engine
+    var songList = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        local: songList
+    });
+    
+    // Initializing the typeahead
+    $('.typeahead').typeahead({
+        hint: true,
+        highlight: true, /* Enable substring highlighting */
+        minLength: 1 /* Specify minimum characters required for showing suggestions */
+    },
+    {
+        name: 'songList',
+        source: songList
+    });
+});
+</script>
 
 
 </body>
