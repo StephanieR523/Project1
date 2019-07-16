@@ -1,7 +1,7 @@
 # Project1
 Project # 1 
 
-Tenatively named, "Pied Pied"
+Tenatively named, "Pied Piper"
 
 Our website can be used to search by Artist Name or Song Name for the most popular music video result related to the user's keyword. 
 The music video will automatically play upon the search's completion. 
