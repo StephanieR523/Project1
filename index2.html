@@ -23,7 +23,7 @@
     }
      .button {
          width: 140px;
-         height: 45px;
+         height: 35px;
          font-family: 'Roboto', sans-serif;
          font-size: 11px;
          text-transform: uppercase;
@@ -33,7 +33,7 @@
          color: #34495E;
          background-color: #FEF5E7;
          border: none;
-         border-radius: 45px;
+         border-radius: 5px;
          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
          transition: all 0.3s ease 0s;
          cursor: pointer;
@@ -197,7 +197,7 @@
         $(document).ready(function(){
         console.log("the page is ready!");
             // Defining the local dataset
-            var songList = ["Margaritaville","Boys of Summer","Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanged Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
+            var songList = ["Margaritaville","Boys of Summer","Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanted Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
             
             // Constructing the suggestion engine
             var songList = new Bloodhound({
@@ -270,6 +270,10 @@ function clear() {
             //console.log(response.similartracks.track[i].name);
             var tempS = response.results.trackmatches.track[i].name
             trackList.push(tempS)
+
+            var theHref = response.results.trackmatches.track[i].url
+            console.log("<a href='" + theHref + "'" + "class='btn btn-default'>" + "LINK!</a>")
+            //$("<td>").text(response.results.trackmatches.track[i].url)
         
           //console.log("Create a new row in the table")
           // Create the new row
@@ -278,7 +282,8 @@ function clear() {
             $("<td>").text(response.results.trackmatches.track[i].artist),
             $("<td>").text("unknown"),
             $("<td>").text("unknown"),
-            $("<td>").text(response.results.trackmatches.track[i].url),
+            $("<td>").html("<a href='" + theHref + "'" + "class='btn button'>" + "LINK!</a>")
+
           );
         
           // Append the new row to the table
@@ -300,6 +305,28 @@ function clear() {
         
         
         })
+
+
+
+$(document).ready(function(){
+  $(document).on("click", "#music-table tr", function(event) {
+    console.log("you clicked a table row!")
+
+    var row = $(this).closest("tr")
+    var songTitle = row.find("td:nth-child(1)");
+
+    console.log("song title: " + $(songTitle).text())
+
+    var artistName = row.find("td:nth-child(2)");
+    console.log("artist name: " + $(artistName).text())
+
+
+  });
+});
+
+
+
+
     </script>
 
 
