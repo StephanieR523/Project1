@@ -1,4 +1,9 @@
 
+
+// BEFORE USING THIS FILE USE project1.html FROM GITHUB BRANCH TO COMPARE THE id's AND classes
+
+
+
 $(document).ready(function () {
 
     // THIS IS DEEZER API
@@ -31,7 +36,14 @@ $(document).ready(function () {
                 var artistName = parse.data[i].artist.name;
                 var albumName = parse.data[i].album.title;
 
-                // -------- YOUTUBE API AJAX CALL ------------
+                // ------------- CREATE OBJECT OR ARRAY -------------
+
+
+
+                // --------------------------------------------------
+
+
+                // -------- AJAX CALL FOR YOUTUBE API ------------
 
                 function displayVideoSearch() {
                     // var searchTerm = $("#songtitle");
