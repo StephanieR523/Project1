@@ -31,47 +31,52 @@ $(document).ready(function () {
                 var artistName = parse.data[i].artist.name;
                 var albumName = parse.data[i].album.title;
 
-                // CREATING NEW ROWS IN HTML WITH DATA  
-                var newRow = $("<tr>").attr("id", "datas").append(
-                    $("<td>").html(songTitle),
-                    $("<td>").html(artistName),
-                    $("<td>").html(albumName),
-                    $("<td>").html("<input type='button' value='Video Link' class='btn btn-secondary' id='videoBtn'>"),
-                );
-                $("#music-table > tbody").prepend(newRow);
+                // -------- YOUTUBE API AJAX CALL ------------
 
-                // GETTING ANOTHER AJAX REQUEST
-                // CREATING YOUTUBE API
-                $("#videoBtn").on("click", function () {
-                    console.log("you clicked")
+                function displayVideoSearch() {
+                    // var searchTerm = $("#songtitle");
+                    var queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + songTitle + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBzkN-i1rf5WcSS9GFfRx0Xu2XxyhJwVX4";
+                    console.log(queryURL);
 
-                    for (var i = 0; i < 5; i++) {
-                        function displayVideoSearch() {
-                            // var searchTerm = $("#songtitle");
-                            var queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + songTitle + "&topicId=%2Fm%2F04rlf&type=video&key=AIzaSyBdKCyg7sttppX9lC9j18Rpdz99RddVhXA";
-                            console.log(queryURL);
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET",
 
-                            $.ajax({
-                                url: queryURL,
-                                method: "GET"
-                            }).then(function (response) {
-                                var videoIds = JSON.stringify(response.items[0].id.videoId);;
-                                var videoLink = "https://www.youtube.com/watch?v=" + videoIds;
-                                console.log(response)
-                                $("#videoBtn").click(function () {
-                                    document.location.href = (videoLink.replace(/['"]+/g, ''))
-                                });
+                        // async: false, // THIS SYNCHRONISE THE AJAX CALL IN ORDER BUT ONLY ONE VIDEO WORKING.
 
-                                console.log(response.items[0].snippet.title);
-                                console.log(videoIds.replace(/['"]+/g, ''));
-                            });
-                        }
-                        // CALLING THE FUNCTIONS 
-                        displayVideoSearch();
-                    }
-                })
+                    }).then(function (response) {
+                        var videoIds = JSON.stringify(response.items[0].id.videoId);;
+                        var videoLink = "https://www.youtube.com/watch?v=" + videoIds;
+                        console.log(response)
+                        $(".videoBtn").click(function () {
+                            document.location.href = (videoLink.replace(/['"]+/g, ''))
+                        });
+
+                        console.log(response.items[0].snippet.title);
+                        console.log(videoIds.replace(/['"]+/g, ''));
+                    });
+
+                // ---------------------------------------------
+
+                    // CREATING NEW ROWS IN HTML WITH DATA  
+                    var newRow = $("<tr>").attr("id", "datas").append(
+                        $("<td>").html(songTitle),
+                        $("<td>").html(artistName),
+                        $("<td>").html(albumName),
+                        $("<td>").html("<input type='button' value='Video Link' class='btn btn-secondary videoBtn'>"),
+                    );
+
+                    $("#music-table > tbody").append(newRow);
+                }
+
+                // CALLING THE FUNCTIONS 
+                displayVideoSearch();
+
             }
         })
     })
-
 })
+
+
+
+
