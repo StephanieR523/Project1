@@ -10,96 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="typeahead.js"></script>
-    <style>
-        /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */
-     body {
-         margin-top: 50px;
-         font-family: 'Roboto', sans-serif;
-         font-family: 'Merriweather', serif;
-         color: #34495E;
-    }
-     th {
-         color: #34495E;
-    }
-     .button {
-         width: 140px;
-         height: 35px;
-         font-family: 'Roboto', sans-serif;
-         font-size: 11px;
-         text-transform: uppercase;
-         letter-spacing: 2.5px;
-         font-weight: 500;
-         color: #008080;
-         color: #34495E;
-         background-color: #FEF5E7;
-         border: none;
-         border-radius: 5px;
-         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-         transition: all 0.3s ease 0s;
-         cursor: pointer;
-         outline: none;
-    }
-     .button:hover {
-         background-color: #2EE59D;
-         background-color: #008080;
-         box-shadow: 0px 7px 15px rgba(23, 32, 42, 0.3);
-         color: #fff;
-        /*transform: translateY(-7px);
-        */
-    }
-    
-    
-    
-    
-    .bs-example {
-    	font-family: sans-serif;
-    	position: relative;
-    	margin: 100px;
-    }
-    .typeahead, .tt-query, .tt-hint {
-    	border: 2px solid #CCCCCC;
-    	border-radius: 8px;
-    	font-size: 22px; /* Set input font size */
-    	height: 30px;
-    	line-height: 30px;
-    	outline: medium none;
-    	padding: 8px 12px;
-    	width: 396px;
-    }
-    .typeahead {
-    	background-color: #FFFFFF;
-    }
-    .typeahead:focus {
-    	border: 2px solid #0097CF;
-    }
-    .tt-query {
-    	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    }
-    .tt-hint {
-    	color: #999999;
-    }
-    .tt-menu {
-    	background-color: #FFFFFF;
-    	border: 1px solid rgba(0, 0, 0, 0.2);
-    	border-radius: 8px;
-    	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    	margin-top: 12px;
-    	padding: 8px 0;
-    	width: 422px;
-    }
-    .tt-suggestion {
-    	font-size: 22px;  /* Set suggestion dropdown font size */
-    	padding: 3px 20px;
-    }
-    .tt-suggestion:hover {
-    	cursor: pointer;
-    	background-color: #0097CF;
-    	color: #FFFFFF;
-    }
-    .tt-suggestion p {
-    	margin: 0;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+      
 </head>
 
 <body>
@@ -109,19 +22,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
+       
     </nav>
 
     <div class="container">
@@ -217,7 +118,6 @@
 "Baby, Please Don't Go",
 "Back In Black",
 "Big Gun",
-"CAN'T STOP ROCK'N'ROLL",
 "Dirty Deeds Done Dirt Cheap",
 "For Those About To Rock",
 "Girls Got Rhythm",
@@ -280,7 +180,6 @@
 "You Oughta Know",
 "Black Velvet",
 "Fantasy",
-"BE MY LOVER",
 "Billion Dollar Babies",
 "Eighteen",
 "Elected",
@@ -366,7 +265,6 @@
 "Don't Ask Me Why",
 "Goodnight Saigon",
 "It's Still Rock And Roll To Me",
-"Miami 2017 {seen The Lights Go Out On Broadway} (live 1",
 "Movin' Out (Anthony's Song)",
 "My Life",
 "New York State Of Mind",
@@ -374,7 +272,6 @@
 "Piano Man",
 "Prelude/angry Young Man",
 "Scenes From An Italian Restaurant",
-"SHE'S ALWAYS A WOMAN",
 "Sometimes A Fantasy",
 "The Ballad Of Billy The Kid",
 "The Stranger",
@@ -382,23 +279,6 @@
 "Baby Come Back",
 "Everybody Wants You",
 "In the Dark",
-"Lonely Is the Night",
-"My Kinda Lover",
-"Rock Me Tonight",
-"She's a Runner",
-"The Stroke",
-"Children Of The Sun",
-"Fairies Wear Boots",
-"Heaven and Hell",
-"Iron Man",
-"N.i.b.",
-"Neon Knights",
-"Paranoid",
-"Sweet Leaf",
-"The Wizard",
-"War Pigs",
-"Highway Song",
-"Train, Train",
 "Can't Find My Way Home",
 "Presence of the Lord",
 "No Rain",
@@ -425,10 +305,6 @@
 "No Woman, No Cry",
 "One Love",
 "Stir It Up",
-"Three Little Birds",
-"Against The Wind",
-"Betty Lou's Gettin' Out Tonigh",
-"Come to Poppa",
 "Feel Like a Number",
 "Fire Down Below",
 "Get Out of Denver",
@@ -521,7 +397,6 @@
 "Far Behind",
 "Goin' up the Country",
 "On the Road Again",
-"IT'S TOO LATE",
 "Oh Very Young",
 "WILD WORLD",
 "In America",
@@ -535,17 +410,12 @@
 "I Want You to Want Me",
 "She's Tight",
 "Surrender",
-"Take Out The Gunman",
-"25 Or 6 To 4",
 "Beginnings",
 "Feeling Stronger Every",
 "I'm a Man",
-"JUST YOU AND ME",
 "Make Me Smile",
-"Questions 67 and 68",
 "Saturday In the Park",
 "South California Purples",
-"JOHNNY B. GOODE",
 "Coming Home",
 "Don't Know What You Got",
 "Gypsy Road",
@@ -603,7 +473,6 @@
 "Woodstock",
 "(I Just) Died in Your Arms",
 "High Enough",
-"I HEAR YOU KNOCKING",
 "Headkeeper",
 "Only You Know And I Know",
 "We Just Disagree",
@@ -629,10 +498,8 @@
 "Ziggy Stardust",
 "Rock On",
 "There's No Way Out Of Here",
-"There's No Way Out Of Here",
 "Frenchette",
 "California Girls",
-"Just A Gigolo / I Ain't Got Nobody",
 "Yankee Rose",
 "Burn",
 "Child In Time",
@@ -663,7 +530,6 @@
 "Have You Ever Loved a Woman",
 "Layla",
 "Recognition",
-"ANGELOS",
 "Holy Diver",
 "Rainbow In the Dark",
 "The Last In Line",
@@ -728,8 +594,6 @@
 "Two Tickets To Paradise",
 "Frankenstein",
 "Free Ride",
-"WAR",
-"CAN'T GET IT OUT OF MY HEAD",
 "Do Ya",
 "Don't Bring Me Down",
 "Evil Woman",
@@ -745,7 +609,6 @@
 "Candle in the Wind",
 "Captain Fantastic",
 "Crocodile Rock",
-"DANIEL",
 "Don't Let The Sun Go Down On Me",
 "Funeral for a Friend (Love Lies Bleeding)",
 "Goodbye Yellow Brick Road",
@@ -758,7 +621,6 @@
 "Someone Saved My Life Tonight",
 "Take Me to the Pilot",
 "Teacher I Need You",
-"THE BITCH IS BACK",
 "Tiny Dancer",
 "Where To Now St. Peter",
 "Your Song",
