@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Pied Piper Music</title>
+    <title>Pied Piper</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
 </head>
 
@@ -18,15 +19,11 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
+               
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Link</a>
-                </li>
+                
             </ul>
         </div>
     </nav>
@@ -34,28 +31,27 @@
     <div class="container">
         <div class="jumbotron text-center shadow-lg" style="margin-bottom:0; opacity: 0.8; background-color: #34495E; color: white">
             <h1>Pied Piper</h1>
-            <p>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." -
-                J.R.R.Tolkien</p>
+            <p>Music videos for every mood.</p>
         </div>
     </div>
 
-    <div class="container" style="margin-top:30px">
+    <div class="container" style="margin-top:30px; text-align: center">
 
         <div class="row">
             <div class="col-md-12">
                 <!-- Search Music  -->
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E, opacity: 0.8; height: 300px">
-                    <div class="card-header text-white" style="background-color: #34495E">Music Search</div>
+                <div class="card mb-4 shadow-lg" style="opacity: 0.8; height: 350px">
+                    <div class="card-header text-white" style="background-color: rgba(255, 255, 255, 0.349); opacity: 0.5"> </div>
                     <div class="card-body">
                         <!-- Entry Form -->
                         <form>
-                            <div class="form-group">
-                                <label for="searchTerm-input">Title</label>
-                                <input class="form-control typeahead" id="searchTerm-input" placeholder="song search"
+                            <div class="form-group" id="searcharea">
+                                <label for="searchTerm-input"> </label>
+                                <input class="form-control typeahead" id="searchTerm-input" placeholder="What song do you want to see?"
                                     type="text">
                             </div>
 
-                            <button type="submit" class="btn button float-left" id="search-music-btn">Submit</button>
+                            <button type="submit" class="btn button float-center" id="search-music-btn" style="text-align: center">Submit</button>
                         </form>
                     </div>
                 </div>
