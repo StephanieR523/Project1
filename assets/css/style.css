@@ -3,11 +3,16 @@
   margin-top: 50px;
   font-family: 'Montserrat', sans-serif;
   color: rgb(52, 94, 63);
- 
+  background-image: url("../images/band.png");
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 th {
   color: #34495E;
+
 }
+
+
 .button {
   width: 140px;
   height: 35px;
@@ -16,9 +21,9 @@ th {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #008080;
+  color: #564875b7;
   color: #34495E;
-  background-color: #FEF5E7;
+  background-color: rgba(184, 191, 209, 0.582);
   border: none;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -27,8 +32,7 @@ th {
   outline: none;
 }
 .button:hover {
-  background-color: #2EE59D;
-  background-color: #008080;
+  background-color:#56578dbe;
   box-shadow: 0px 7px 15px rgba(23, 32, 42, 0.3);
   color: #fff;
  
@@ -52,12 +56,13 @@ width: 396px;
 }
 .typeahead {
 background-color: #FFFFFF;
+opacity: 0.9;
 }
 .typeahead:focus {
-border: 2px solid #0097CF;
+border: 1px solid #17d8f1e0;;
 }
 .tt-query {
-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+box-shadow: 0 1px 1px rgba(94, 92, 92, 0.075) inset;
 }
 .tt-hint {
 color: #999999;
