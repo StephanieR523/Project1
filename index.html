@@ -6,31 +6,129 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <script src="typeahead.js"></script>
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-        <!-- /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */ -->
+
+    <style>
+        /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */
+        body {
+            margin-top: 50px;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Merriweather', serif;
+            color: #34495E;
+        }
+
+        th {
+            color: #34495E;
+        }
+
+        .button {
+            width: 140px;
+            height: 35px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            color: #008080;
+            color: #34495E;
+            background-color: #FEF5E7;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .button:hover {
+            background-color: #2EE59D;
+            background-color: #008080;
+            box-shadow: 0px 7px 15px rgba(23, 32, 42, 0.3);
+            color: #fff;
+            /*transform: translateY(-7px);
+        */
+        }
+
+        .bs-example {
+            font-family: sans-serif;
+            position: relative;
+            margin: 100px;
+        }
+
+        .typeahead,
+        .tt-query,
+        .tt-hint {
+            border: 2px solid #CCCCCC;
+            border-radius: 8px;
+            font-size: 22px;
+            /* Set input font size */
+            height: 30px;
+            line-height: 30px;
+            outline: medium none;
+            padding: 8px 12px;
+            width: 396px;
+        }
+
+        .typeahead {
+            background-color: #FFFFFF;
+        }
+
+        .typeahead:focus {
+            border: 2px solid #0097CF;
+        }
+
+        .tt-query {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        }
+
+        .tt-hint {
+            color: #999999;
+        }
+
+        .tt-menu {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 12px;
+            padding: 8px 0;
+            width: 422px;
+        }
+
+        .tt-suggestion {
+            font-size: 22px;
+            /* Set suggestion dropdown font size */
+            padding: 3px 20px;
+        }
+
+        .tt-suggestion:hover {
+            cursor: pointer;
+            background-color: #0097CF;
+            color: #FFFFFF;
+        }
+
+        .tt-suggestion p {
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Pied Piper</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Resources Used</a>
+                    <a class="nav-link disabled" href="#">Link</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
@@ -38,7 +136,8 @@
     <div class="container">
         <div class="jumbotron text-center shadow-lg" style="margin-bottom:0; background-color: #34495E; color: white">
             <h1>Pied Piper!</h1>
-            <p>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." - J.R.R.Tolkien</p>
+            <p>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." -
+                J.R.R.Tolkien</p>
         </div>
     </div>
 
@@ -54,7 +153,8 @@
                         <form>
                             <div class="form-group">
                                 <label for="searchTerm-input">Title</label>
-                                <input class="form-control typeahead" id="searchTerm-input" placeholder="Stairway" type="text">
+                                <input class="form-control typeahead" id="searchTerm-input" placeholder="Stairway"
+                                    type="text">
                             </div>
 
                             <button type="submit" class="btn button float-left" id="search-music-btn">Submit</button>
@@ -66,7 +166,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4 shadow-lg" style="border-color: #34495E">
-                    <div class="card-header text-white" style="background-color: #34495E">Song List</div>
+                    <div class="card-header text-white" style="background-color: #34495E">Matching Songs</div>
                     <div class="card-body">
                         <!-- Music table-->
                         <table class="table table-sm table-hover" id='music-table'>
@@ -75,8 +175,7 @@
                                     <th scope="col">Song Title</th>
                                     <th scope="col">Artist</th>
                                     <th scope="col">Album</th>
-                                    <th scope="col">Year of Release</th>
-                                    <th scope="col">Link</th>
+                                    <th scope="col">Last.fm Link</th>
                                 </tr>
                             </thead>
                             <!-- Music list goes here -->
@@ -90,7 +189,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4 shadow-lg" style="border-color: #34495E">
-                    <div class="card-header text-white" style="background-color: #34495E">Music Video</div>
+                    <div class="card-header text-white" style="background-color: #34495E">YouTube Video Details</div>
                     <!-- Video Output goes here  -->
                     <div class="card-body" id="video-output">
                     </div>
@@ -102,145 +201,299 @@
     <div class="jumbotron text-center" style="margin-bottom:0">
         <p></p>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/typeahead.js"></script>
+    <script src="assets/javascript/songList.js"></script>
 
     <script>
-        $(document).ready(function(){
-        console.log("the page is ready!");
+        $(document).ready(function () {
+            console.log("the page is ready!");
             // Defining the local dataset
-            var songList = ["Margaritaville","Boys of Summer","Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanted Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
-            
+            //var songList1 = ["Margaritaville", "Boys of Summer", "Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanted Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
+
             // Constructing the suggestion engine
             var songList = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.whitespace,
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: songList
+                local: songList1
             });
-            
+
             // Initializing the typeahead
             $('.typeahead').typeahead({
                 hint: true,
                 highlight: true, /* Enable substring highlighting */
                 minLength: 1 /* Specify minimum characters required for showing suggestions */
             },
-            {
-                name: 'songList',
-                source: songList
-            });
-        
-        
+                {
+                    name: 'songList',
+                    source: songList
+                });
         });
-        
- 
-// Function to empty out the articles
-function clear() {
-  $("#music-table-body").empty();
-}
+
+        // Function to empty out the articles
+        function clear() {
+            $("#music-table-body").empty();
+        }
+
+        // Function to call last.fm and then youtube api
+        $("#search-music-btn").on("click", function (event) {
+            event.preventDefault();
+            clear();
+
+            console.log("The submit button was clicked!");
+            var songString = $("#searchTerm-input").val().trim();
+            var newSongString = songString.split(' ').join('+');
+
+            console.log("newSongString: " + newSongString)
+
+            // API Calls to Last.FM
+            //var title = "stairway+to+heaven"
+            var title = newSongString
+            //var artist = "led+zeppelin"
+            var apiKey = "637a89984572ad6c6f2f4d364da0305e"
+
+            //var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar" + "&limit=5" + "&artist=" + artist + "&track=" + title + "&api_key=" + apiKey + "&format=json"
+            var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.search" + "&limit=5" + "&track=" + title + "&api_key=" + apiKey + "&format=json"
+
+            console.log("queryURL: " + queryURL)
+            var trackList = [];
+            var artistList = [];
+            var albumList = [];
+
+            // placeholder for the youtube song string
+            var topTitleMatch = newSongString
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                // take first best match and put it in the variable that we will use for the youtube api
+                topTitleMatch = response.results.trackmatches.track[0].name
+                console.log(response);
+                console.log(response.results.trackmatches.track[0].name);
+                console.log(response.results.trackmatches.track[0].artist);
 
 
-       
-      $("#search-music-btn").on("click", function(event) {
-           event.preventDefault();
-           clear();
 
-        console.log("The submit button was clicked!");
-        var songString = $("#searchTerm-input").val().trim();
-        var newSongString = songString.split(' ').join('+');
-        
-        console.log("newSongString: " + newSongString)
-        
-        // API Calls to Last.FM
-        
-        
-        //var title = "stairway+to+heaven"
-        var title = newSongString
-        //var artist = "led+zeppelin"
-        var apiKey = "637a89984572ad6c6f2f4d364da0305e"
-        
-        //var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar" + "&limit=5" + "&artist=" + artist + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.search" + "&limit=5" + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        
-        console.log("queryURL: " + queryURL)
-        var trackList = [];
-        
-        
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          console.log(response);
-          console.log(response.results.trackmatches.track[0].name);
-          console.log(response.results.trackmatches.track[0].artist);
+                //console.log(response.similartracks.track[1].name);
+                //trackList = response.similartracks.track
+                // would trackList.push(response.similartracks.track)  work???
 
-          //console.log(response.similartracks.track[1].name);
-          //trackList = response.similartracks.track
-        // would trackList.push(response.similartracks.track)  work???
+                for (var i = 0; i < 5; i++) {
+                    //console.log(response.similartracks.track[i].name);
+                    //var tempTrack = response.results.trackmatches.track[i].name
+                    //trackList.push(tempS)
+
+                    var theHref = response.results.trackmatches.track[i].url
+                    console.log("<a href='" + theHref + "'" + "class='btn btn-default'>" + "LINK!</a>")
+                    //$("<td>").text(response.results.trackmatches.track[i].url)
+
+                    var artistName = response.results.trackmatches.track[i].artist
+                    artistName = artistName.split(' ').join('+');
+                    var trackName = response.results.trackmatches.track[i].name
+                    trackName = trackName.split(' ').join('+');
+
+                    trackList.push(trackName)
+                    artistList.push(artistName)
 
 
-          for (var i=0; i<5; i++) {
-            //console.log(response.similartracks.track[i].name);
-            var tempS = response.results.trackmatches.track[i].name
-            trackList.push(tempS)
+                    //console.log("Create a new row in the table")
+                    // Create the new row
+                    var newRow = $("<tr>").append(
+                        $("<td>").text(response.results.trackmatches.track[i].name).attr('id', 'trackID' + i),
+                        $("<td>").text(response.results.trackmatches.track[i].artist).attr('id', 'artistID' + i),
+                        $("<td>").text("unknown").attr('id', 'albumNameID' + i),
+                        //$("<td>").text("unknown").attr('id', 'albumReleaseID' + i ),
+                        $("<td>").html("<a href='" + theHref + "'" + "target='_blank'" + "class='btn button'>" + "Last.fm LINK!</a>")
 
-            var theHref = response.results.trackmatches.track[i].url
-            console.log("<a href='" + theHref + "'" + "class='btn btn-default'>" + "LINK!</a>")
-            //$("<td>").text(response.results.trackmatches.track[i].url)
-        
-          //console.log("Create a new row in the table")
-          // Create the new row
-          var newRow = $("<tr>").append(
-            $("<td>").text(response.results.trackmatches.track[i].name),
-            $("<td>").text(response.results.trackmatches.track[i].artist),
-            $("<td>").text("unknown"),
-            $("<td>").text("unknown"),
-            $("<td>").html("<a href='" + theHref + "'" + "class='btn button'>" + "LINK!</a>")
+                    );
+                    // Append the new row to the table
+                    //console.log("append the row to the table")
+                    $("#music-table > tbody").append(newRow);
+                    //firstSong = $("#trackID0").val().trim();
 
-          );
-        
-          // Append the new row to the table
-          //console.log("append the row to the table")
-          $("#music-table > tbody").append(newRow);
-        
-        
-          }
-        
-        
-        
-          for (var i=0; i < trackList.length; i++ ) {
-            //console.log(trackList[i])
-          }
-        
-        
-        });
-        
-        
-        
+                }
+
+
+                // loop through table, get track and artist then call last.fm again to get the album name
+                for (let i = 0; i < trackList.length; i++) {
+                    //console.log(trackList[i])
+
+                    let artistName = artistList[i];
+                    let trackName = trackList[i];
+
+
+                    //artistName = artistName.split(' ').join('+');
+                    //trackName = trackName.split(' ').join('+');
+
+
+                    console.log("--new track name: " + trackName)
+                    console.log("--new artist name: " + artistName)
+
+
+                    // get the album name for the track
+                    // have to call last.fm again to get that info
+
+                    var apiKey = "637a89984572ad6c6f2f4d364da0305e"
+                    let queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" + apiKey + "&artist=" + artistName + "&track=" + trackName + "&format=json"
+                    console.log("url to get track info: " + queryURL)
+
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    }).then(function (response) {
+                        console.log("XX-- second call to last.fm to get album name")
+                        console.log(response)
+                        var albumName = response.track.album.title
+                        console.log("album name: " + albumName)
+                        var t = "albumNameID" + i
+                        console.log("t = " + t)
+                        $("#" + t).text(albumName)
+                        albumName = albumName.split(' ').join('+');
+                        albumList.push(albumName)
+
+
+
+
+                    }); // second call to last.fm
+                }  // for loop
+
+
+
+
+
+
+            });  // first call to last.fm
+
+
+
+
+
+
+
         })
 
 
 
-$(document).ready(function(){
-  $(document).on("click", "#music-table tr", function(event) {
-    console.log("you clicked a table row!")
-
-    var row = $(this).closest("tr")
-    var songTitle = row.find("td:nth-child(1)");
-
-    console.log("song title: " + $(songTitle).text())
-
-    var artistName = row.find("td:nth-child(2)");
-    console.log("artist name: " + $(artistName).text())
 
 
-  });
-});
 
 
+
+        $(document).ready(function () {
+            $(document).on("click", "#music-table tr", function (event) {
+                console.log("you clicked a table row!")
+
+                var row = $(this).closest("tr")
+                var songTitle = row.find("td:nth-child(1)");
+
+                console.log("song title: " + $(songTitle).text())
+
+                var artistName = row.find("td:nth-child(2)");
+                console.log("artist name: " + $(artistName).text())
+
+
+
+                // Call the youtube api here
+                // Get ONE video url from youtube!
+                // We don't need multiple results.  We just need the top matching result.
+                // put the url in the href variable
+
+                var newSongTitle = $(songTitle).text()
+                newSongTitle = newSongTitle.split(' ').join('+');
+
+                var youTubeApiKey = "AIzaSyBdKCyg7sttppX9lC9j18Rpdz99RddVhXA"
+                var queryURL = " https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + newSongTitle + "&topicId=%2Fm%2F04rlf&type=video&key=" + youTubeApiKey;
+                console.log("youTube URL: " + queryURL)
+                var youTubeVideoID
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    var videoIds = JSON.stringify(response.items[0].id.videoId);
+                    var videoLink = "https://www.youtube.com/watch?v=" + videoIds;
+
+
+                    console.log("--- Response from youtube ---")
+                    console.log(response)
+                    //$("#videoBtn").click(function () {
+                    // we get the video id above and we fix the videoLink and create the href below
+                    // what does document.location.href do exactly and why do we need it???
+
+                    //document.location.href = (videoLink.replace(/['"]+/g, ''))
+                    //});
+
+                    console.log(response.items[0].snippet.title);
+                    console.log(videoIds.replace(/['"]+/g, ''));
+                    youTubeVideoID = videoIds.replace(/['"]+/g, '')
+
+                    console.log("-- you tube video id: " + youTubeVideoID)
+                    videoLink = "https://www.youtube.com/watch?v=" + youTubeVideoID;
+                    console.log("<<>> this is the youtube link -->>>  " + videoLink)
+
+
+                    // clear the video output div
+                    $("#video-output").empty();
+
+                    // let's put a pile of data in the video-output div
+
+                    $("<img>", {
+                        src: response.items[0].snippet.thumbnails.medium.url,
+                        width: response.items[0].snippet.thumbnails.medium.width,
+                        height: response.items[0].snippet.thumbnails.medium.height
+                    }).appendTo("#video-output");
+                    $("<h1></h1>").text(response.items[0].snippet.title).appendTo("#video-output");
+                    $("<p></p>").text(response.items[0].snippet.description).appendTo("#video-output");
+
+                    $("<li></li>").text("Published at: " + response.items[0].snippet.publishedAt).appendTo("#video-output");
+
+
+
+                    // call youtube again and get statistics on the video we found (use part=statistics
+
+
+
+                    //var youTubeApiKey = "AIzaSyBdKCyg7sttppX9lC9j18Rpdz99RddVhXA"
+                    //var queryURL = " https://www.googleapis.com/youtube/v3/search?part=statistics&maxResults=1&q=" + trackList[0] + "&topicId=%2Fm%2F04rlf&type=video&key=" + youTubeApiKey;
+
+                    //console.log("youTube URL: " + queryURL)
+
+
+                    //$.ajax({
+                    //   url: queryURL,
+                    //   method: "GET"
+                    //}).then(function (response) {
+
+                    console.log("youTube video id: " + youTubeVideoID)
+
+                    $.getJSON("https://www.googleapis.com/youtube/v3/videos", {
+                        key: "AIzaSyBdKCyg7sttppX9lC9j18Rpdz99RddVhXA",
+                        part: "snippet,statistics",
+                        id: youTubeVideoID
+                    }, function (response) {
+
+                        $("<li></li>").text("View count: " + response.items[0].statistics.viewCount).appendTo("#video-output");
+                        $("<li></li>").text("Favorite count: " + response.items[0].statistics.favoriteCount).appendTo("#video-output");
+                        $("<li></li>").text("Like count: " + response.items[0].statistics.likeCount).appendTo("#video-output");
+                        $("<li></li>").text("Dislike count: " + response.items[0].statistics.dislikeCount).appendTo("#video-output");
+
+                        $("<li></li>").html("<a href='" + videoLink + "'" + "target='_blank'" + "class='btn button'>" + "YouTube LINK!</a>").appendTo("#video-output");
+
+                    });  // the second youtube ajax call
+
+
+
+                });  // the youtube ajax call
+
+            });  // the you tube link click event
+
+        });
 
 
     </script>
-
-
 </body>
 
 </html>
