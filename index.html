@@ -6,39 +6,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <script src="typeahead.js"></script>
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-        <!-- /* We need to add space to the top of the body otherwise the nav will overlap the Jumbotron */ -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Pied Piper</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Resources Used</a>
+                    <a class="nav-link disabled" href="#">Link</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <div class="jumbotron text-center shadow-lg" style="margin-bottom:0; background-color: #34495E; color: white">
-            <h1>Pied Piper!</h1>
-            <p>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." - J.R.R.Tolkien</p>
+        <div class="jumbotron text-center shadow-lg" style="margin-bottom:0; opacity: 0.8; background-color: #34495E; color: white">
+            <h1>Pied Piper</h1>
+            <p>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." -
+                J.R.R.Tolkien</p>
         </div>
     </div>
 
@@ -47,14 +44,15 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Search Music  -->
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E">
+                <div class="card mb-4 shadow-lg" style="border-color: #34495E, opacity: 0.8; height: 300px">
                     <div class="card-header text-white" style="background-color: #34495E">Music Search</div>
                     <div class="card-body">
                         <!-- Entry Form -->
                         <form>
                             <div class="form-group">
                                 <label for="searchTerm-input">Title</label>
-                                <input class="form-control typeahead" id="searchTerm-input" placeholder="Stairway" type="text">
+                                <input class="form-control typeahead" id="searchTerm-input" placeholder="song search"
+                                    type="text">
                             </div>
 
                             <button type="submit" class="btn button float-left" id="search-music-btn">Submit</button>
@@ -65,8 +63,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E">
-                    <div class="card-header text-white" style="background-color: #34495E">Song List</div>
+                <div class="card mb-4 shadow-lg" style="border-color: #34495E; opacity: 0.8;">
+                    <div class="card-header text-white" style="background-color: #34495E; opacity: 0.8;">Matching Songs</div>
                     <div class="card-body">
                         <!-- Music table-->
                         <table class="table table-sm table-hover" id='music-table'>
@@ -75,8 +73,7 @@
                                     <th scope="col">Song Title</th>
                                     <th scope="col">Artist</th>
                                     <th scope="col">Album</th>
-                                    <th scope="col">Year of Release</th>
-                                    <th scope="col">Link</th>
+                                    <th scope="col">Last.fm Link</th>
                                 </tr>
                             </thead>
                             <!-- Music list goes here -->
@@ -89,8 +86,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E">
-                    <div class="card-header text-white" style="background-color: #34495E">Music Video</div>
+                <div class="card mb-4 shadow-lg" style="border-color: #34495E; opacity: 0.8">
+                    <div class="card-header text-white" style="background-color: #34495E">YouTube Video Details</div>
                     <!-- Video Output goes here  -->
                     <div class="card-body" id="video-output">
                     </div>
@@ -99,146 +96,14 @@
         </div>
     </div>
 
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <p></p>
-    </div>
 
-
-    <script>
-        $(document).ready(function(){
-        console.log("the page is ready!");
-            // Defining the local dataset
-            var songList = ["Margaritaville","Boys of Summer","Somebody Like You", "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore", "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", "Rawhide", "Jailhouse Rock", "Hold On, I'm Commin'", "Soothe Me", "Twistin' the Night Away", "Pretty Woman", "Crying", "Only the Lonely", "Mean Woman Blues", "In Dreams", "Long Cool Woman in a Black Dress", "Some Enchanted Evening", "Cara Mia", "Come a Little Closer", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
-            
-            // Constructing the suggestion engine
-            var songList = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: songList
-            });
-            
-            // Initializing the typeahead
-            $('.typeahead').typeahead({
-                hint: true,
-                highlight: true, /* Enable substring highlighting */
-                minLength: 1 /* Specify minimum characters required for showing suggestions */
-            },
-            {
-                name: 'songList',
-                source: songList
-            });
-        
-        
-        });
-        
- 
-// Function to empty out the articles
-function clear() {
-  $("#music-table-body").empty();
-}
-
-
-       
-      $("#search-music-btn").on("click", function(event) {
-           event.preventDefault();
-           clear();
-
-        console.log("The submit button was clicked!");
-        var songString = $("#searchTerm-input").val().trim();
-        var newSongString = songString.split(' ').join('+');
-        
-        console.log("newSongString: " + newSongString)
-        
-        // API Calls to Last.FM
-        
-        
-        //var title = "stairway+to+heaven"
-        var title = newSongString
-        //var artist = "led+zeppelin"
-        var apiKey = "637a89984572ad6c6f2f4d364da0305e"
-        
-        //var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar" + "&limit=5" + "&artist=" + artist + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.search" + "&limit=5" + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        
-        console.log("queryURL: " + queryURL)
-        var trackList = [];
-        
-        
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          console.log(response);
-          console.log(response.results.trackmatches.track[0].name);
-          console.log(response.results.trackmatches.track[0].artist);
-
-          //console.log(response.similartracks.track[1].name);
-          //trackList = response.similartracks.track
-        // would trackList.push(response.similartracks.track)  work???
-
-
-          for (var i=0; i<5; i++) {
-            //console.log(response.similartracks.track[i].name);
-            var tempS = response.results.trackmatches.track[i].name
-            trackList.push(tempS)
-
-            var theHref = response.results.trackmatches.track[i].url
-            console.log("<a href='" + theHref + "'" + "class='btn btn-default'>" + "LINK!</a>")
-            //$("<td>").text(response.results.trackmatches.track[i].url)
-        
-          //console.log("Create a new row in the table")
-          // Create the new row
-          var newRow = $("<tr>").append(
-            $("<td>").text(response.results.trackmatches.track[i].name),
-            $("<td>").text(response.results.trackmatches.track[i].artist),
-            $("<td>").text("unknown"),
-            $("<td>").text("unknown"),
-            $("<td>").html("<a href='" + theHref + "'" + "class='btn button'>" + "LINK!</a>")
-
-          );
-        
-          // Append the new row to the table
-          //console.log("append the row to the table")
-          $("#music-table > tbody").append(newRow);
-        
-        
-          }
-        
-        
-        
-          for (var i=0; i < trackList.length; i++ ) {
-            //console.log(trackList[i])
-          }
-        
-        
-        });
-        
-        
-        
-        })
-
-
-
-$(document).ready(function(){
-  $(document).on("click", "#music-table tr", function(event) {
-    console.log("you clicked a table row!")
-
-    var row = $(this).closest("tr")
-    var songTitle = row.find("td:nth-child(1)");
-
-    console.log("song title: " + $(songTitle).text())
-
-    var artistName = row.find("td:nth-child(2)");
-    console.log("artist name: " + $(artistName).text())
-
-
-  });
-});
-
-
-
-
-    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/typeahead.js"></script>
+    <script src="assets/javascript/songList.js"></script>
+    <script src="assets/javascript/javascript.js"></script>
 
 
 </body>

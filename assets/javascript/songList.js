@@ -1,101 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Pied Piper Music</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="typeahead.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-      
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Pied Piper</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-       
-    </nav>
-
-    <div class="container">
-        <div class="jumbotron text-center shadow-lg" style="margin-bottom:0; background-color: #34495E;  opacity: 0.8; color: white">
-            <h1>Pied Piper</h1>
-            <p>Type in your song and we'll show you a video</p>
-        </div>
-    </div>
-
-    <div class="container" style="margin-top:40px">
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Search Music  -->
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E;  opacity: 0.8; height: 300px">
-                    <div class="card-header text-white" style="background-color: #34495E; ">Music Search</div>
-                    <div class="card-body">
-                        <!-- Entry Form -->
-                        <form>
-                            <div class="form-group">
-                                <label for="searchTerm-input">Title</label>
-                                <input class="form-control typeahead" id="searchTerm-input" placeholder="Stairway" type="text">
-                            </div>
-
-                            <button type="submit" class="btn button float-left" id="search-music-btn">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E;  opacity: 0.8; ">
-                    <div class="card-header text-white" style="background-color: #34495E;  opacity: 0.8; ">Song List</div>
-                    <div class="card-body">
-                        <!-- Music table-->
-                        <table class="table table-sm table-hover" id='music-table'>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Song Title</th>
-                                    <th scope="col">Artist</th>
-                                    <th scope="col">Album</th>
-                                    <th scope="col">Year of Release</th>
-                                    <th scope="col">Link</th>
-                                </tr>
-                            </thead>
-                            <!-- Music list goes here -->
-                            <tbody id="music-table-body">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-4 shadow-lg" style="border-color: #34495E;  opacity: 0.8; ">
-                    <div class="card-header text-white" style="background-color: #34495E">Music Video</div>
-                    <!-- Video Output goes here  -->
-                    <div class="card-body" id="video-output">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-
-    <script>
-        $(document).ready(function(){
-        console.log("the page is ready!");
-            // Defining the local dataset
-            var songList = ["Margaritaville","Boys of Summer","Somebody Like You", 
+var songList1 = ["Margaritaville","Boys of Summer","Somebody Like You", 
             "Dirty Deeds Done Dirt Cheap", "Stairway to Heaven", "Layla", "Amore",
              "Wish You Were Here", "Ring of Fire", "Groove Me", "She Caught the Katy", 
              "Soul Man", "Sweet Home Chicago", "Peter Gunn Theme", "Everybody Needs Somebody", 
@@ -115,6 +18,7 @@
 "Baby, Please Don't Go",
 "Back In Black",
 "Big Gun",
+"CAN'T STOP ROCK'N'ROLL",
 "Dirty Deeds Done Dirt Cheap",
 "For Those About To Rock",
 "Girls Got Rhythm",
@@ -177,6 +81,7 @@
 "You Oughta Know",
 "Black Velvet",
 "Fantasy",
+"BE MY LOVER",
 "Billion Dollar Babies",
 "Eighteen",
 "Elected",
@@ -262,6 +167,7 @@
 "Don't Ask Me Why",
 "Goodnight Saigon",
 "It's Still Rock And Roll To Me",
+"Miami 2017 {seen The Lights Go Out On Broadway} (live 1",
 "Movin' Out (Anthony's Song)",
 "My Life",
 "New York State Of Mind",
@@ -269,6 +175,7 @@
 "Piano Man",
 "Prelude/angry Young Man",
 "Scenes From An Italian Restaurant",
+"SHE'S ALWAYS A WOMAN",
 "Sometimes A Fantasy",
 "The Ballad Of Billy The Kid",
 "The Stranger",
@@ -276,6 +183,23 @@
 "Baby Come Back",
 "Everybody Wants You",
 "In the Dark",
+"Lonely Is the Night",
+"My Kinda Lover",
+"Rock Me Tonight",
+"She's a Runner",
+"The Stroke",
+"Children Of The Sun",
+"Fairies Wear Boots",
+"Heaven and Hell",
+"Iron Man",
+"N.i.b.",
+"Neon Knights",
+"Paranoid",
+"Sweet Leaf",
+"The Wizard",
+"War Pigs",
+"Highway Song",
+"Train, Train",
 "Can't Find My Way Home",
 "Presence of the Lord",
 "No Rain",
@@ -302,6 +226,10 @@
 "No Woman, No Cry",
 "One Love",
 "Stir It Up",
+"Three Little Birds",
+"Against The Wind",
+"Betty Lou's Gettin' Out Tonigh",
+"Come to Poppa",
 "Feel Like a Number",
 "Fire Down Below",
 "Get Out of Denver",
@@ -394,6 +322,7 @@
 "Far Behind",
 "Goin' up the Country",
 "On the Road Again",
+"IT'S TOO LATE",
 "Oh Very Young",
 "WILD WORLD",
 "In America",
@@ -407,12 +336,17 @@
 "I Want You to Want Me",
 "She's Tight",
 "Surrender",
+"Take Out The Gunman",
+"25 Or 6 To 4",
 "Beginnings",
 "Feeling Stronger Every",
 "I'm a Man",
+"JUST YOU AND ME",
 "Make Me Smile",
+"Questions 67 and 68",
 "Saturday In the Park",
 "South California Purples",
+"JOHNNY B. GOODE",
 "Coming Home",
 "Don't Know What You Got",
 "Gypsy Road",
@@ -470,6 +404,7 @@
 "Woodstock",
 "(I Just) Died in Your Arms",
 "High Enough",
+"I HEAR YOU KNOCKING",
 "Headkeeper",
 "Only You Know And I Know",
 "We Just Disagree",
@@ -495,8 +430,10 @@
 "Ziggy Stardust",
 "Rock On",
 "There's No Way Out Of Here",
+"There's No Way Out Of Here",
 "Frenchette",
 "California Girls",
+"Just A Gigolo / I Ain't Got Nobody",
 "Yankee Rose",
 "Burn",
 "Child In Time",
@@ -527,6 +464,7 @@
 "Have You Ever Loved a Woman",
 "Layla",
 "Recognition",
+"ANGELOS",
 "Holy Diver",
 "Rainbow In the Dark",
 "The Last In Line",
@@ -591,6 +529,8 @@
 "Two Tickets To Paradise",
 "Frankenstein",
 "Free Ride",
+"WAR",
+"CAN'T GET IT OUT OF MY HEAD",
 "Do Ya",
 "Don't Bring Me Down",
 "Evil Woman",
@@ -606,6 +546,7 @@
 "Candle in the Wind",
 "Captain Fantastic",
 "Crocodile Rock",
+"DANIEL",
 "Don't Let The Sun Go Down On Me",
 "Funeral for a Friend (Love Lies Bleeding)",
 "Goodbye Yellow Brick Road",
@@ -618,6 +559,7 @@
 "Someone Saved My Life Tonight",
 "Take Me to the Pilot",
 "Teacher I Need You",
+"THE BITCH IS BACK",
 "Tiny Dancer",
 "Where To Now St. Peter",
 "Your Song",
@@ -2473,138 +2415,4 @@
 "Motorsport",
 "Greenlight",
 "Rack City", "This Magic Moment", "Born to Be Wild", "Magic Carpet Ride", "The Joker", "Jet Airliner", "Fly Like an Eagle", "Abracadabra", "Mercury Blues", "Take the Money and Run", "Space Cowboy", "Living in the USA", "Born on the Bayou", "Proud Mary", "Bad Moon Rising", "Suzie Q", "Tommy", "Baba O'Riley", "Magic Bus", "My Generation", "Pinball Wizard", "I Can't Explain", "Love, Reign o'er Me", "Smoke on the Water", "Bad Company", "Burnin' Sky", "2000 Light Years from Home", "Sweet Emotion", "Gimme Shelter", "We Will Rock You", "Renegade", "House of the Rising Sun", "Juke Box Hero", "Slow Ride", "Roxanne", "Live and Let Die", "Drive", "Moving in Stereo", "White Wedding", "New York Groove"];
-            
-            // Constructing the suggestion engine
-            var songList = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: songList
-            });
-            
-            // Initializing the typeahead
-            $('.typeahead').typeahead({
-                hint: true,
-                highlight: true, /* Enable substring highlighting */
-                minLength: 1 /* Specify minimum characters required for showing suggestions */
-            },
-            {
-                name: 'songList',
-                source: songList
-            });
-        
-        
-        });
-        
- 
-// Function to empty out the articles
-function clear() {
-  $("#music-table-body").empty();
-}
-
-
-       
-      $("#search-music-btn").on("click", function(event) {
-           event.preventDefault();
-           clear();
-
-        console.log("The submit button was clicked!");
-        var songString = $("#searchTerm-input").val().trim();
-        var newSongString = songString.split(' ').join('+');
-        
-        console.log("newSongString: " + newSongString)
-        
-        // API Calls to Last.FM
-        
-        
-        //var title = "stairway+to+heaven"
-        var title = newSongString
-        //var artist = "led+zeppelin"
-        var apiKey = "637a89984572ad6c6f2f4d364da0305e"
-        
-        //var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar" + "&limit=5" + "&artist=" + artist + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=track.search" + "&limit=5" + "&track=" + title + "&api_key=" + apiKey + "&format=json"
-        
-        console.log("queryURL: " + queryURL)
-        var trackList = [];
-        
-        
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          console.log(response);
-          console.log(response.results.trackmatches.track[0].name);
-          console.log(response.results.trackmatches.track[0].artist);
-
-          //console.log(response.similartracks.track[1].name);
-          //trackList = response.similartracks.track
-        // would trackList.push(response.similartracks.track)  work???
-
-
-          for (var i=0; i<5; i++) {
-            //console.log(response.similartracks.track[i].name);
-            var tempS = response.results.trackmatches.track[i].name
-            trackList.push(tempS)
-
-            var theHref = response.results.trackmatches.track[i].url
-            console.log("<a href='" + theHref + "'" + "class='btn btn-default'>" + "LINK!</a>")
-            //$("<td>").text(response.results.trackmatches.track[i].url)
-        
-          //console.log("Create a new row in the table")
-          // Create the new row
-          var newRow = $("<tr>").append(
-            $("<td>").text(response.results.trackmatches.track[i].name),
-            $("<td>").text(response.results.trackmatches.track[i].artist),
-            $("<td>").text("unknown"),
-            $("<td>").text("unknown"),
-            $("<td>").html("<a href='" + theHref + "'" + "class='btn button'>" + "LINK!</a>")
-
-          );
-        
-          // Append the new row to the table
-          //console.log("append the row to the table")
-          $("#music-table > tbody").append(newRow);
-        
-        
-          }
-        
-        
-        
-          for (var i=0; i < trackList.length; i++ ) {
-            //console.log(trackList[i])
-          }
-        
-        
-        });
-        
-        
-        
-        })
-
-
-
-$(document).ready(function(){
-  $(document).on("click", "#music-table tr", function(event) {
-    console.log("you clicked a table row!")
-
-    var row = $(this).closest("tr")
-    var songTitle = row.find("td:nth-child(1)");
-
-    console.log("song title: " + $(songTitle).text())
-
-    var artistName = row.find("td:nth-child(2)");
-    console.log("artist name: " + $(artistName).text())
-
-
-  });
-});
-
-
-
-
-    </script>
-
-
-</body>
-
-</html>
+   
