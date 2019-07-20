@@ -1,0 +1,95 @@
+
+ body {
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(52, 94, 63);
+  background-image: url("../images/band.png");
+  background-repeat: repeat;
+  background-position: center; 
+}
+th {
+  color: #34495E;
+
+}
+
+
+
+
+.button {
+  width: 140px;
+  height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #564875b7;
+  color: #34495E;
+  background-color: rgba(117, 123, 139, 0.582);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.button:hover {
+  background-color:#2a5af5c2;
+  box-shadow: 0px 7px 15px rgba(23, 32, 42, 0.3);
+  color: #fff;
+ 
+}
+
+
+.bs-example {
+font-family: sans-serif;
+position: relative;
+margin: 100px;
+}
+.typeahead, .tt-query, .tt-hint {
+border: 2px solid #CCCCCC;
+border-radius: 8px;
+font-size: 18px; /* Set input font size */
+height: 30px;
+line-height: 30px;
+outline: medium none;
+padding: 8px 12px;
+width: 396px;
+}
+.typeahead {
+background-color: #FFFFFF;
+opacity: 0.9;
+}
+.typeahead:focus {
+border: 1px solid #1e656e77;;
+}
+.tt-query {
+box-shadow: 0 1px 1px rgba(94, 92, 92, 0.075) inset;
+}
+.tt-hint {
+color: #999999;
+}
+.tt-menu {
+background-color: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 8px;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+margin-top: 12px;
+padding: 8px 0;
+width: 422px;
+}
+.tt-suggestion {
+font-size: 22px;  /* Set suggestion dropdown font size */
+padding: 3px 20px;
+}
+.tt-suggestion:hover {
+cursor: pointer;
+background-color: #0097CF;
+color: #FFFFFF;
+}
+.tt-suggestion p {
+margin: 0;
+}
+
+
+
